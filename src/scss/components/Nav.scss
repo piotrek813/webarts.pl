@@ -1,0 +1,18 @@
+.navbar {
+  @include font($size: 20px, $color: $black);
+
+  background: #fff;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  &__item {
+    display: inline-block;
+    margin-left: 20px;
+  }
+}

@@ -1,0 +1,25 @@
+// vars
+@import './colors.scss';
+
+// utils
+@import './reset.scss';
+@import './utils.scss';
+
+// components
+@import './components/Header.scss';
+@import './components/Hero.scss';
+@import './components/Nav.scss';
+@import './components/Footer.scss';
+
+// basic style
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  @include font($size: 16px, $color: #000)
+}
