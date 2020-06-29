@@ -1,0 +1,17 @@
+.button {
+  @include font($size: 18px, $color: $white, $weight: 'bold');
+  @include link($color: false);
+  display: inline-block;
+  background: $primary;
+  margin-top: 18px;
+  padding: 12px 20px;
+  border-radius: 3px;
+
+  &--big {
+    padding: 17px 40px;
+  }
+
+  &--dark {
+    background: $secondary;
+  }
+}

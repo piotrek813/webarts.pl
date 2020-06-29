@@ -1,18 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Img from 'gatsby-image';
 
-const Hero = ({ image }) => (
-  <Img
-    className="hero-image"
-    fluid={image.fluid}
-    alt={image.alt}
-    title={image.title}
-  />
+const Hero = ({ svg }) => (
+  <img className="hero-section__image" src={svg} alt="" />
 );
 
 Hero.propTypes = {
-  image: PropTypes.objectOf(PropTypes.object).isRequired,
+  svg: PropTypes.string.isRequired,
 };
 
 export default Hero;

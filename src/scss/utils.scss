@@ -4,6 +4,7 @@ $breakpoints: ('phone': 400px,
   'tablet-small': 640px,
   'tablet': 768px,
   'tablet-wide': 1024px,
+  'fhd': 1080px,
   'desktop': 1248px,
   'desktop-wide': 1440px);
 
@@ -35,7 +36,7 @@ $breakpoints: ('phone': 400px,
 }
 
 @mixin font($size: false, $color: false, $weight: false, $lh: false) {
-  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-family: $fontFamily;
 
   @if $size {
     font-size: $size;
@@ -46,7 +47,7 @@ $breakpoints: ('phone': 400px,
   }
 
   @if $weight {
-    font-weight: $weight;
+    font-weight: map_get($fontWeights, $weight);
   }
 
   @if $lh {
@@ -74,5 +75,8 @@ $breakpoints: ('phone': 400px,
 
 @mixin link($color: inherit) {
   text-decoration: none;
-  color: $color;
+
+  @if $color {
+    color: $color;
+  }
 }

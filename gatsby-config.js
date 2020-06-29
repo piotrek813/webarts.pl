@@ -30,7 +30,7 @@ module.exports = {
         scss: path.join(__dirname, 'src/scss'),
         utils: path.join(__dirname, 'src/utils'),
         templates: path.join(__dirname, 'src/templates'),
-        assets: path.join(__dirname, 'src/assets'),
+        images: path.join(__dirname, 'src/images'),
       },
     },
     {
