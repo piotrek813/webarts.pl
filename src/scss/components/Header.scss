@@ -10,7 +10,7 @@
   }
 
   &__h {
-    @include font($size: 33px, $color: $white, $weight: 700);
+    @include font($size: 33px, $color: $white, $weight: 'bold');
 
     @include mq('tablet-small') {
       font-size: 40px;
@@ -22,7 +22,7 @@
   }
 
   &__p {
-    @include font($size: 16px, $color: $white);
+    @include font($size: 18px, $color: $white, $weight: 'medium');
     margin-top: 10px;
 
     @include mq('tablet-wide') {

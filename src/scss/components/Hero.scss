@@ -1,14 +1,13 @@
-.hero-image {
-  background: $black;
+.hero-section {
+  background: $primary;
   height: 100vh;
-  position: absolute !important;
-  top: 0;
-  left: 0;
   width: 100%;
-  z-index: -1;
+  clip-path: polygon(46% 0, 100% 27%, 100% 76%, 0 100%, 0 0);
+  @include flex();
 
-  img {
-    object-fit: cover !important;
-    object-position: center center !important;
+  &__image {
+    width: 232px;
+    height: auto;
+    margin-top: 40px;
   }
 }

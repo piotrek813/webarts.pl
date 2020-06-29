@@ -1,35 +1,23 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
 import Nav from 'components/Nav';
 import Hero from 'components/Hero';
+import Button from 'components/Button';
+import hero from 'images/undraw_coding.svg';
 
-const Header = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      file(relativePath: { eq: "hero_image.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 1400) {
-            ...GatsbyImageSharpFluid_noBase64
-          }
-        }
-      }
-    }
-  `);
-
-  return (
-    <header className="header">
-      <Nav />
-      <Hero image={data.file.childImageSharp} />
+const Header = () => (
+  <header className="header">
+    <Nav />
+    <div className="hero-section">
       <div className="header__content">
-        <h1 className="header__h">Some heading</h1>
+        <h1 className="header__h">Stwórzmy razem twoją nową stronę</h1>
         <p className="header__p">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum
-          expedita animi eos sequi accusantium ullam commodi dolores asperiores
-          libero exercitationem?
+          Piotr Smoliński Fontend dev | JS React Gatsby
         </p>
+        <Button>Get in touch</Button>
       </div>
-    </header>
-  );
-};
+      <Hero svg={hero} />
+    </div>
+  </header>
+);
 
 export default Header;

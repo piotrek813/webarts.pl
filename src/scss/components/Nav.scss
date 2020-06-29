@@ -10,10 +10,11 @@
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 9998;
 
   &__list {
     @include flex($center: false);
-    @include font($size: 28px, $weight: 600);
+    @include font($size: 28px, $weight: 'bold');
 
     background: $darkBlue;
     justify-content: center;
@@ -38,7 +39,7 @@
     }
 
     @include mq('tablet') {
-      @include font($size: 20px, $weight: 500);
+      @include font($size: 20px, $weight: 'medium');
 
       background: unset;
       display: unset;
