@@ -12,6 +12,10 @@
   left: 0;
   z-index: 9998;
 
+  @include mq('fhd') {
+    padding: 23px 140px;
+  }
+
   &__list {
     @include flex($center: false);
     @include font($size: 28px, $weight: 'bold');
