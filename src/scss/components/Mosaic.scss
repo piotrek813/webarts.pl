@@ -37,8 +37,19 @@
   &__square,
   &__square::before,
   &__square::after {
-    width: 40px;
-    height: 40px;
+    @include dimensions($width: 25px, $height: 25px);
+
+    @include mq('tablet') {
+      @include dimensions($width: 35px, $height: 35px);
+    }
+
+    @include mq('fhd') {
+      @include dimensions($width: 40px, $height: 40px);
+    }
+
+    @include mq('desktop') {
+      @include dimensions($width: 50px, $height: 50px);
+    }
   }
 
   &--light {

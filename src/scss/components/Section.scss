@@ -84,17 +84,26 @@ $padding-right-item1024: 100px 140px 100px 100px;
   &--center {
     text-align: center;
     display: block;
+
+    .section__content {
+      display: block;
+      padding-right: 140px;
+    }
   }
 
   &--is-mirror {
     .section__img {
-      padding: $padding-left-item1024;
-      grid-column: 1;
-      grid-row: 1;
+      @include mq('fhd') {
+        padding: $padding-left-item1024;
+        grid-column: 1;
+        grid-row: 1;
+      }
     }
 
     .section__content {
-      padding: $padding-right-item1024;
+      @include mq('fhd') {
+        padding: $padding-right-item1024;
+      }
     }
   }
 }
