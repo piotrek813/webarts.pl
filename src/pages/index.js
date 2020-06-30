@@ -19,6 +19,7 @@ const IndexPage = () => (
       img={sec1Svg}
     />
     <Section
+      isMirror
       color="dark"
       h="Very intersting things"
       p="Nibh adipiscing ornare tortor viverra elementum commodo in. Diam pellentesque at nec nisi ut eget pharetra curabitur. Urna aliquam morbi euismod facilisi at posuere nisl. Tortor velit tortor, et nec, pellentesque id sit. Morbi velit in hac eget et aliquet."
