@@ -1,0 +1,39 @@
+.section {
+  &__h {
+    @include font($size: 25px, $weight: 'bold');
+  }
+
+  &__p {
+    font-size: 17px;
+    margin-top: 8px;
+  }
+
+  &__content {
+    padding: 40px;
+  }
+
+  &__img {
+    padding: 40px;
+    width: 100%;
+  }
+
+  &--light {
+
+    .section__content {
+      background: $primary;
+      color: $white;
+    }
+  }
+
+  &--dark {
+
+    .section__content {
+      background: $secondary;
+      color: $white;
+    }
+  }
+
+  &--center {
+    text-align: center;
+  }
+}
