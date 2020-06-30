@@ -1,0 +1,71 @@
+.mosaic {
+  &__square {
+    position: absolute;
+
+    &::after,
+    &::before {
+      @include pseudo($display: block, $pos: absolute, $content: '');
+    }
+
+    &--left-bottom {
+      left: 0;
+      bottom: 0;
+
+      &::before {
+        transform: translateY(-100%);
+      }
+
+      &::after {
+        transform: translateX(100%);
+      }
+    }
+
+    &--right-top {
+      right: 0;
+      top: 0;
+
+      &::before {
+        transform: translateY(100%);
+      }
+
+      &::after {
+        transform: translateX(-100%);
+      }
+    }
+  }
+
+  &__square,
+  &__square::before,
+  &__square::after {
+    width: 40px;
+    height: 40px;
+  }
+
+  &--light {
+    .mosaic__square {
+      background: $mosaic-light1;
+
+      &::before {
+        background: $mosaic-light2;
+      }
+
+      &::after {
+        background: $mosaic-light3;
+      }
+    }
+  }
+
+  &--dark {
+    .mosaic__square {
+      background: $mosaic-dark1;
+
+      &::before {
+        background: $mosaic-dark2;
+      }
+
+      &::after {
+        background: $mosaic-dark3;
+      }
+    }
+  }
+}

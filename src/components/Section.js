@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Mosaic from 'components/Mosaic';
 
-const Section = ({ h, p, img, color, center, isMirror }) => {
+const Section = ({ h, p, img, color, center, isMirror, isMosaic }) => {
   let classNames = 'section';
   if (color) {
     classNames += ` section--${color}`;
@@ -16,6 +17,9 @@ const Section = ({ h, p, img, color, center, isMirror }) => {
   return (
     <section className={classNames}>
       <div className="section__content">
+        {isMosaic && color !== '' && (
+          <Mosaic color={color === 'dark' ? 'dark' : 'light'} />
+        )}
         {h !== '' && <h2 className="section__h">{h}</h2>}
         {p !== '' && <p className="section__p">{p}</p>}
       </div>
@@ -31,6 +35,7 @@ Section.propTypes = {
   color: PropTypes.oneOf(['light', 'dark', 'dark-blue', '']),
   center: PropTypes.bool,
   isMirror: PropTypes.bool,
+  isMosaic: PropTypes.bool,
 };
 
 Section.defaultProps = {
@@ -40,6 +45,7 @@ Section.defaultProps = {
   color: '',
   center: false,
   isMirror: false,
+  isMosaic: false,
 };
 
 export default Section;

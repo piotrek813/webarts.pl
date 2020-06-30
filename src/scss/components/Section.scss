@@ -1,5 +1,11 @@
+$padding640: 100px;
+$padding-x768: 150px;
+$padding-y768: 100px;
+$padding-left-item1024: 100px 100px 100px 140px;
+$padding-right-item1024: 100px 140px 100px 100px;
+
 .section {
-  @include mq('tablet-wide') {
+  @include mq('fhd') {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
@@ -7,7 +13,7 @@
   &__h {
     @include font($size: 25px, $weight: 'bold');
 
-    @include mq('tablet-wide') {
+    @include mq('fhd') {
       font-size: 29px;
     }
   }
@@ -16,7 +22,7 @@
     @include font($size: 17px, $lh: 1.3em);
     margin-top: 8px;
 
-    @include mq('tablet-wide') {
+    @include mq('fhd') {
       font-size: 18px;
       margin-top: 16px;
     }
@@ -24,13 +30,18 @@
 
   &__content {
     padding: 40px;
+    position: relative;
 
     @include mq('tablet-small') {
-      padding: 100px;
+      padding: $padding640;
     }
 
-    @include mq('tablet-wide') {
-      padding: 100px 100px 100px 140px;
+    @include mq('tablet') {
+      padding: $padding-y768 $padding-x768;
+    }
+
+    @include mq('fhd') {
+      padding: $padding-left-item1024;
       @include flex($center: false);
       justify-content: center;
     }
@@ -44,8 +55,12 @@
       padding: 100px;
     }
 
-    @include mq('tablet-wide') {
-      padding: 100px 140px 100px 100px;
+    @include mq('tablet') {
+      padding: $padding-y768 $padding-x768;
+    }
+
+    @include mq('fhd') {
+      padding: $padding-right-item1024;
       margin: auto;
     }
   }
@@ -73,8 +88,13 @@
 
   &--is-mirror {
     .section__img {
+      padding: $padding-left-item1024;
       grid-column: 1;
       grid-row: 1;
+    }
+
+    .section__content {
+      padding: $padding-right-item1024;
     }
   }
 }
