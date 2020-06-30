@@ -43,7 +43,7 @@
       @include dimensions($width: 35px, $height: 35px);
     }
 
-    @include mq('fhd') {
+    @include mq('desktop') {
       @include dimensions($width: 40px, $height: 40px);
     }
 

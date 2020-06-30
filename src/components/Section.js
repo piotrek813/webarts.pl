@@ -2,24 +2,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Mosaic from 'components/Mosaic';
 
-const Section = ({ h, p, img, color, center, isMirror, isMosaic }) => {
+const Section = ({ h, p, img, color, isCenter, isMirror, isWide }) => {
   let classNames = 'section';
   if (color) {
     classNames += ` section--${color}`;
   }
-  if (center) {
-    classNames += ' section--center';
+  if (isCenter) {
+    classNames += ' section--is-center';
   }
   if (isMirror) {
     classNames += ' section--is-mirror';
+  }
+  if (isWide) {
+    classNames += ' section--is-wide';
+  }
+  if (img === '' && !isCenter) {
+    classNames += ' section--is-align-left';
   }
 
   return (
     <section className={classNames}>
       <div className="section__content">
-        {isMosaic && color !== '' && (
-          <Mosaic color={color === 'dark' ? 'dark' : 'light'} />
-        )}
+        {color !== '' && <Mosaic color={color === 'dark' ? 'dark' : 'light'} />}
         {h !== '' && <h2 className="section__h">{h}</h2>}
         {p !== '' && <p className="section__p">{p}</p>}
       </div>
@@ -33,9 +37,9 @@ Section.propTypes = {
   p: PropTypes.string,
   img: PropTypes.string,
   color: PropTypes.oneOf(['light', 'dark', 'dark-blue', '']),
-  center: PropTypes.bool,
+  isCenter: PropTypes.bool,
   isMirror: PropTypes.bool,
-  isMosaic: PropTypes.bool,
+  isWide: PropTypes.bool,
 };
 
 Section.defaultProps = {
@@ -43,9 +47,9 @@ Section.defaultProps = {
   p: '',
   img: '',
   color: '',
-  center: false,
+  isCenter: false,
   isMirror: false,
-  isMosaic: false,
+  isWide: false,
 };
 
 export default Section;
