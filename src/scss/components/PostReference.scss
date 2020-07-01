@@ -2,28 +2,40 @@
   position: relative;
 
   &__h {
-    @include font($size: 17px, $weight: 'semi-bold');
+    @include font($size: 18px, $weight: 'semi-bold');
 
     @include mq('phone') {
       font-size: 19px;
     }
 
-    @include mq('desktop') {
+    @include mq('tablet') {
       font-size: 20px;
+    }
+
+    @include mq('desktop') {
+      font-size: 22px;
+    }
+
+    @include mq('desktop-wide') {
+      font-size: 24px;
     }
   }
 
   &__p {
     margin-top: 4px;
-    font-size: 14px;
+    font-size: 15px;
 
     @include mq('phone') {
       margin-top: 6px;
       font-size: 16px;
     }
 
-    @include mq('desktop') {
+    @include mq('tablet') {
       font-size: 17px;
+    }
+
+    @include mq('desktop-wide') {
+      font-size: 19px;
     }
   }
 
