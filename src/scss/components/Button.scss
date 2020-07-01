@@ -7,11 +7,23 @@
   padding: 12px 20px;
   border-radius: 3px;
 
-  &--big {
-    padding: 17px 40px;
+  &--is-small {
+    @include font($size: 15px, $weight: 'normal');
   }
 
-  &--dark {
+  &--color-primary {
+    background: $primary;
+  }
+
+  &--color-dark {
+    background: $dark;
+  }
+
+  &--color-secondary {
     background: $secondary;
+  }
+
+  &--color-dark-blue {
+    background: $dark-blue;
   }
 }

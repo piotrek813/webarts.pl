@@ -4,6 +4,20 @@ $padding-y768: 100px;
 $padding-left-item1080: 100px 100px 100px 140px;
 $padding-right-item1080: 100px 140px 100px 100px;
 
+@mixin section-color($class: "primary", $color: $primary) {
+  &--color-#{$class} {
+    .section__content {
+      color: $white;
+      background: $color;
+    }
+  }
+
+  &--is-wide.section--color-#{$class} {
+    color: $white;
+    background: $color;
+  }
+}
+
 .section {
   @include mq('desktop') {
     display: grid;
@@ -65,29 +79,10 @@ $padding-right-item1080: 100px 140px 100px 100px;
     }
   }
 
-  &--light {
-
-    .section__content {
-      background: $primary;
-      color: $white;
-    }
-  }
-
-  &--dark {
-
-    .section__content {
-      background: $secondary;
-      color: $white;
-    }
-  }
-
-  &--darkBlue {
-
-    .section__content {
-      background: $darkBlue;
-      color: $white;
-    }
-  }
+  @include section-color($color: $primary, $class: "primary");
+  @include section-color($color: $dark, $class: "dark");
+  @include section-color($color: $secondary, $class: "secondary");
+  @include section-color($color: $dark-blue, $class: "dark-blue");
 
   &--is-center {
     text-align: center;
@@ -166,17 +161,17 @@ $padding-right-item1080: 100px 140px 100px 100px;
       }
     }
 
-    &.section--light {
-      background: $primary;
-    }
+    // &.section--light {
+    //   background: $primary;
+    // }
 
-    &.section--dark {
-      background: $secondary;
-    }
+    // &.section--dark {
+    //   background: $secondary;
+    // }
 
-    &.section--darkBlue {
-      background: $secondary;
-      color: $white;
-    }
+    // &.section--dark-blue {
+    //   background: $secondary;
+    //   color: $white;
+    // }
   }
 }

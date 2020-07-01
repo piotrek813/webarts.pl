@@ -1,0 +1,65 @@
+.post-reference {
+  position: relative;
+
+  &__h {
+    @include font($size: 18px, $weight: 'semi-bold');
+
+    @include mq('phone') {
+      font-size: 19px;
+    }
+
+    @include mq('tablet') {
+      font-size: 20px;
+    }
+
+    @include mq('desktop') {
+      font-size: 22px;
+    }
+
+    @include mq('desktop-wide') {
+      font-size: 24px;
+    }
+  }
+
+  &__p {
+    margin-top: 4px;
+    font-size: 15px;
+
+    @include mq('phone') {
+      margin-top: 6px;
+      font-size: 16px;
+    }
+
+    @include mq('tablet') {
+      font-size: 17px;
+    }
+
+    @include mq('desktop-wide') {
+      font-size: 19px;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: $white;
+    background: $secondary74;
+    @include flex();
+    text-align: center;
+    padding: 30px;
+  }
+
+  &__img {
+    position: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .button {
+    width: 50%;
+  }
+}
