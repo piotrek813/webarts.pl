@@ -1,7 +1,7 @@
 .navbar {
   @include font($size: 20px, $color: $white);
 
-  background: $darkBlue;
+  background: $dark-blue;
   width: 100%;
   padding: 23px 40px;
   display: flex;
@@ -20,7 +20,7 @@
     @include flex($center: false);
     @include font($size: 28px, $weight: 'bold');
 
-    background: $darkBlue;
+    background: $dark-blue;
     justify-content: center;
     align-items: flex-end;
     padding: 20px;

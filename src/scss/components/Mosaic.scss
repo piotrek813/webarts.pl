@@ -66,6 +66,20 @@
     }
   }
 
+  &--dark-blue {
+    .mosaic__square {
+      background: $mosaic-dark-blue1;
+
+      &::before {
+        background: $mosaic-dark-blue2;
+      }
+
+      &::after {
+        background: $mosaic-dark-blue3;
+      }
+    }
+  }
+
   &--dark {
     .mosaic__square {
       background: $mosaic-dark1;
