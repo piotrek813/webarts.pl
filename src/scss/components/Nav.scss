@@ -12,7 +12,7 @@
   left: 0;
   z-index: 9998;
 
-  @include mq('fhd') {
+  @include mq('desktop') {
     padding: 23px 140px;
   }
 

@@ -12,7 +12,7 @@
     padding: 76px;
   }
 
-  @include mq('fhd') {
+  @include mq('desktop') {
     padding: 140px;
     grid-template-columns: 1fr 512px;
   }
