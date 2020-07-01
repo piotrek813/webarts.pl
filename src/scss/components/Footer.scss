@@ -1,6 +1,23 @@
 .footer {
+  @include font($size: 17px, $color: $white);
+
   background: $dark;
-  padding: 30px 20px;
+  padding: 40px;
   text-align: center;
-  @include font($size: 18px, $color: $white);
+
+  @include mq('tablet-small') {
+    padding: 40px 100px;
+  }
+
+  @include mq('tablet') {
+    padding: 40px 150px;
+  }
+
+  @include mq('desktop') {
+    padding: 40px 140px;
+  }
+
+  @include mq('desktop') {
+    font-size: 18px;
+  }
 }

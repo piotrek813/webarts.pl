@@ -5,7 +5,11 @@
     padding: 100px;
   }
 
-  @include mq('tablet-wide') {
+  @include mq('tablet') {
+    padding: 150px;
+  }
+
+  @include mq('desktop') {
     padding: 140px;
   }
 
