@@ -5,8 +5,8 @@ const Nav = () => {
   const [isMenuOpen, toogleMenuState] = useState(false);
   const navLinks = [
     { label: 'Home', to: '/' },
-    { label: 'Moje prace', to: '#' },
-    { label: 'Blog', to: '#' },
+    { label: 'Moje prace', to: '/moje-prace' },
+    { label: 'Blog', to: '/blog' },
   ];
 
   const handleHamburgerClick = () => {
@@ -15,7 +15,11 @@ const Nav = () => {
 
   return (
     <nav className="navbar">
-      <span className="navbar__logo">Home</span>
+      <span className="navbar__logo">
+        <a className="navbar__link" href="/">
+          Webarts.pl
+        </a>
+      </span>
       <ul
         className={`navbar__list ${
           isMenuOpen ? ' navbar__list--is-active' : ''

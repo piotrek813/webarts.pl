@@ -1,32 +1,125 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
 import Template from 'templates/Template';
-import Section from 'components/Section';
-import sec1Svg from 'images/undraw_gatsbyjs.svg';
-import sec2Svg from 'images/undraw_online_page.svg';
 import PostsGroup from 'components/PostsGroup';
+import RenderSection from 'components/RenderSections';
 
-const IndexPage = () => (
-  <Template>
-    <Section
-      isCenter
-      h="Some sort of heading"
-      p="In consequat eget senectus turpis facilisis ac justo feugiat. Ipsum quisque at eget scelerisque at eu urna. Venenatis lectus laoreet nulla sagittis, consequat. Donec quisque feugiat nibh vel id proin turpis. Id blandit lacus morbi at in commodo euismod consequat."
-    />
-    <Section
-      color="secondary"
-      h="Super wydajne strony z gatsby’im"
-      p="Nibh adipiscing ornare tortor viverra elementum commodo in. Diam pellentesque at nec nisi ut eget pharetra curabitur. Urna aliquam morbi euismod facilisi at posuere nisl. Tortor velit tortor, et nec, pellentesque id sit. Morbi velit in hac eget et aliquet."
-      img={sec1Svg}
-    />
-    <Section
-      isMirror
-      color="primary"
-      h="Very intersting things"
-      p="Nibh adipiscing ornare tortor viverra elementum commodo in. Diam pellentesque at nec nisi ut eget pharetra curabitur. Urna aliquam morbi euismod facilisi at posuere nisl. Tortor velit tortor, et nec, pellentesque id sit. Morbi velit in hac eget et aliquet."
-      img={sec2Svg}
-    />
-    <PostsGroup h="Blog" />
+const IndexPage = ({
+  data: {
+    datoCmsHome: { sections, ...datoCmsHome },
+    allDatoCmsPost: { edges: posts },
+  },
+}) => (
+  <Template
+    hero={{
+      heading: datoCmsHome.heading,
+      paragraph: datoCmsHome.paragraph,
+    }}
+  >
+    <RenderSection data={sections} />
+    <PostsGroup h="Blog" data={posts} />
   </Template>
 );
+
+export const query = graphql`
+  query HomeQuery {
+    datoCmsHome {
+      heading
+      paragraph
+
+      sections {
+        ... on DatoCmsSection {
+          id
+          model {
+            apiKey
+          }
+          background {
+            hex
+          }
+          isMirror
+          image {
+            fluid(maxWidth: 800) {
+              ...GatsbyDatoCmsFluid
+            }
+          }
+          heading
+          paragraphNode {
+            childMarkdownRemark {
+              html
+            }
+          }
+        }
+        ... on DatoCmsSectionBreakLayout {
+          id
+          model {
+            apiKey
+          }
+          heading
+          paragraphNode {
+            childMarkdownRemark {
+              html
+            }
+          }
+        }
+        ... on DatoCmsSectionWithReference {
+          id
+          model {
+            apiKey
+          }
+          background {
+            hex
+          }
+          isMirror
+          reference {
+            ... on DatoCmsService {
+              heading
+              paragraphNode {
+                childMarkdownRemark {
+                  html
+                }
+              }
+              hero {
+                url
+                alt
+                title
+              }
+            }
+          }
+        }
+      }
+    }
+    allDatoCmsPost(
+      limit: 3
+      sort: { fields: meta___publishedAt, order: DESC }
+    ) {
+      edges {
+        node {
+          heading
+          content {
+            ... on DatoCmsText {
+              textNode {
+                childMarkdownRemark {
+                  excerpt(pruneLength: 100)
+                }
+              }
+            }
+          }
+          hero {
+            fluid(maxWidth: 600) {
+              ...GatsbyDatoCmsFluid_noBase64
+            }
+            alt
+            title
+          }
+        }
+      }
+    }
+  }
+`;
+
+IndexPage.propTypes = {
+  data: PropTypes.objectOf(PropTypes.object).isRequired,
+};
 
 export default IndexPage;

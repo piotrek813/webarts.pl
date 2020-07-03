@@ -79,4 +79,8 @@
     @include link();
     display: block;
   }
+
+  &__logo {
+    font-weight: map-get($fontWeights, 'semi-bold');
+  }
 }
