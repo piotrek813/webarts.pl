@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'components/Button';
+import Img from 'gatsby-image';
 
-const PostReference = ({ h, p, img }) => (
+const PostReference = ({ h, p, hero }) => (
   <div className="post-reference">
-    <img src={img} alt="" className="post-reference__img" />
+    <Img className="post-reference__img" {...hero} />
     <div className="post-reference__content">
       <h3 className="post-reference__h">{h}</h3>
       <p className="post-reference__p">{p}</p>
@@ -18,7 +19,9 @@ const PostReference = ({ h, p, img }) => (
 PostReference.propTypes = {
   h: PropTypes.string.isRequired,
   p: PropTypes.string.isRequired,
-  img: PropTypes.string.isRequired,
+  hero: PropTypes.objectOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.object])
+  ).isRequired,
 };
 
 export default PostReference;

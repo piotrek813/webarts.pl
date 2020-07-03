@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Mosaic from 'components/Mosaic';
+import Img from 'gatsby-image';
 
 const Section = ({ h, p, img, color, isCenter, isMirror, isWide }) => {
   let classNames = 'section';
@@ -10,13 +11,13 @@ const Section = ({ h, p, img, color, isCenter, isMirror, isWide }) => {
   if (isCenter) {
     classNames += ' section--is-center';
   }
-  if (isMirror) {
+  if (isMirror && img !== '' && img !== null) {
     classNames += ' section--is-mirror';
   }
   if (isWide) {
     classNames += ' section--is-wide';
   }
-  if (img === '' && !isCenter) {
+  if (img === '' || (img === null && !isCenter)) {
     classNames += ' section--is-align-left';
   }
 
@@ -25,17 +26,38 @@ const Section = ({ h, p, img, color, isCenter, isMirror, isWide }) => {
       <div className="section__content">
         {color !== '' && <Mosaic color={color} />}
         {h !== '' && <h2 className="section__h">{h}</h2>}
-        {p !== '' && <p className="section__p">{p}</p>}
+        {Object.keys(p).length !== 0 && (
+          <div
+            className="section__p"
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{
+              __html: p.childMarkdownRemark.html,
+            }}
+          />
+        )}
       </div>
-      {img !== '' && <img src={img} alt="" className="section__img" />}
+      {img !== null &&
+        Object.keys(img).length !== 0 &&
+        (img.fluid ? (
+          <Img className="section__img" {...img} />
+        ) : (
+          <img
+            className="section__img"
+            src={img.url}
+            alt={img.alt}
+            title={img.title}
+          />
+        ))}
     </section>
   );
 };
 
 Section.propTypes = {
   h: PropTypes.string,
-  p: PropTypes.string,
-  img: PropTypes.string,
+  p: PropTypes.objectOf(PropTypes.object),
+  img: PropTypes.objectOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.object])
+  ),
   color: PropTypes.oneOf(['primary', 'secondary', 'dark-blue', 'dark', '']),
   isCenter: PropTypes.bool,
   isMirror: PropTypes.bool,
@@ -44,8 +66,8 @@ Section.propTypes = {
 
 Section.defaultProps = {
   h: '',
-  p: '',
-  img: '',
+  p: {},
+  img: {},
   color: '',
   isCenter: false,
   isMirror: false,
