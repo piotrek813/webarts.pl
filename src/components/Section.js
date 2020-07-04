@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Mosaic from 'components/Mosaic';
 import Img from 'gatsby-image';
+import Mosaic from 'components/Mosaic';
+import Button from 'components/Button';
 
-const Section = ({ h, p, img, color, isCenter, isMirror, isWide }) => {
+const Section = ({ h, p, img, linkTo, color, isCenter, isMirror, isWide }) => {
   let classNames = 'section';
   if (color) {
     classNames += ` section--color-${color}`;
@@ -11,14 +12,15 @@ const Section = ({ h, p, img, color, isCenter, isMirror, isWide }) => {
   if (isCenter) {
     classNames += ' section--is-center';
   }
-  if (isMirror && img !== '' && img !== null) {
-    classNames += ' section--is-mirror';
-  }
-  if (isWide) {
-    classNames += ' section--is-wide';
-  }
-  if (img === '' || (img === null && !isCenter)) {
-    classNames += ' section--is-align-left';
+  if (img !== '' && img !== null && Object.keys(img).length !== 0) {
+    classNames += ' section--is-grid';
+
+    if (isMirror) {
+      classNames += ' section--is-mirror';
+    }
+    if (isWide) {
+      classNames += ' section--is-wide';
+    }
   }
 
   return (
@@ -26,7 +28,7 @@ const Section = ({ h, p, img, color, isCenter, isMirror, isWide }) => {
       <div className="section__content">
         {color !== '' && <Mosaic color={color} />}
         {h !== '' && <h2 className="section__h">{h}</h2>}
-        {Object.keys(p).length !== 0 && (
+        {p.childMarkdownRemark.html !== '' && (
           <div
             className="section__p"
             // eslint-disable-next-line react/no-danger
@@ -35,6 +37,7 @@ const Section = ({ h, p, img, color, isCenter, isMirror, isWide }) => {
             }}
           />
         )}
+        {linkTo !== '' && <Button linkTo={linkTo}>Zobacz</Button>}
       </div>
       {img !== null &&
         Object.keys(img).length !== 0 &&
@@ -58,6 +61,7 @@ Section.propTypes = {
   img: PropTypes.objectOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.object])
   ),
+  linkTo: PropTypes.string,
   color: PropTypes.oneOf(['primary', 'secondary', 'dark-blue', 'dark', '']),
   isCenter: PropTypes.bool,
   isMirror: PropTypes.bool,
@@ -68,6 +72,7 @@ Section.defaultProps = {
   h: '',
   p: {},
   img: {},
+  linkTo: '',
   color: '',
   isCenter: false,
   isMirror: false,
