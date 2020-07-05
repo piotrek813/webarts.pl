@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = ({ children, linkTo, color, isSmall }) => {
+const Button = ({ children, linkTo, color, isSmall, ...props }) => {
   let classNames = 'button';
   if (color) {
     classNames += ` button--color-${color}`;
@@ -12,11 +12,12 @@ const Button = ({ children, linkTo, color, isSmall }) => {
 
   return (
     // eslint-disable-next-line jsx-a11y/anchor-is-valid
-    <a href={linkTo} className={classNames}>
+    <a href={linkTo} className={classNames} {...props}>
       {children}
     </a>
   );
 };
+
 Button.propTypes = {
   children: PropTypes.string.isRequired,
   linkTo: PropTypes.string,

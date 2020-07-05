@@ -4,7 +4,7 @@ import Img from 'gatsby-image';
 import Mosaic from 'components/Mosaic';
 import Button from 'components/Button';
 
-const Section = ({ h, p, img, linkTo, color, isCenter, isMirror, isWide }) => {
+const Section = ({ h, p, img, button, color, isCenter, isMirror, isWide }) => {
   let classNames = 'section';
   if (color) {
     classNames += ` section--color-${color}`;
@@ -37,7 +37,11 @@ const Section = ({ h, p, img, linkTo, color, isCenter, isMirror, isWide }) => {
             }}
           />
         )}
-        {linkTo !== '' && <Button linkTo={linkTo}>Zobacz</Button>}
+        {Object.keys(button).length !== 0 && (
+          <Button color={button.color} linkTo={button.linkTo} {...button.props}>
+            {button.label}
+          </Button>
+        )}
       </div>
       {img !== null &&
         Object.keys(img).length !== 0 &&
@@ -61,7 +65,14 @@ Section.propTypes = {
   img: PropTypes.objectOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.object])
   ),
-  linkTo: PropTypes.string,
+  button: PropTypes.shape({
+    label: PropTypes.string,
+    linkTo: PropTypes.string,
+    color: PropTypes.oneOf(['primary', 'secondary', 'dark-blue', 'dark']),
+    props: PropTypes.objectOf(
+      PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
+    ),
+  }),
   color: PropTypes.oneOf(['primary', 'secondary', 'dark-blue', 'dark', '']),
   isCenter: PropTypes.bool,
   isMirror: PropTypes.bool,
@@ -72,7 +83,7 @@ Section.defaultProps = {
   h: '',
   p: {},
   img: {},
-  linkTo: '',
+  button: {},
   color: '',
   isCenter: false,
   isMirror: false,

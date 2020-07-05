@@ -38,7 +38,15 @@ const MyWorksPage = ({
           h={heading}
           p={paragraphNode}
           img={image}
-          linkTo={link}
+          button={{
+            label: 'Zobacz',
+            linkTo: link,
+            color: 'primary',
+            props: {
+              isSmall: true,
+              target: '_blank',
+            },
+          }}
         />
       ))}
     </Template>
