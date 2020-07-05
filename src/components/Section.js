@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 import Mosaic from 'components/Mosaic';
 import Button from 'components/Button';
+import getColor from 'utils/getColor';
 
 const Section = ({ h, p, img, button, color, isCenter, isMirror, isWide }) => {
   let classNames = 'section';
@@ -38,7 +39,11 @@ const Section = ({ h, p, img, button, color, isCenter, isMirror, isWide }) => {
           />
         )}
         {Object.keys(button).length !== 0 && (
-          <Button color={button.color} linkTo={button.linkTo} {...button.props}>
+          <Button
+            color={getColor(color)}
+            linkTo={button.linkTo}
+            {...button.props}
+          >
             {button.label}
           </Button>
         )}
@@ -68,7 +73,6 @@ Section.propTypes = {
   button: PropTypes.shape({
     label: PropTypes.string,
     linkTo: PropTypes.string,
-    color: PropTypes.oneOf(['primary', 'secondary', 'dark-blue', 'dark']),
     props: PropTypes.objectOf(
       PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
     ),

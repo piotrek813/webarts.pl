@@ -39,9 +39,8 @@ const MyWorksPage = ({
           p={paragraphNode}
           img={image}
           button={{
-            label: 'Zobacz',
+            label: 'Zobacz stronę',
             linkTo: link,
-            color: 'primary',
             props: {
               isSmall: true,
               target: '_blank',
