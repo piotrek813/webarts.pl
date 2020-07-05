@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 
 const Button = ({ children, linkTo, color, isSmall, ...props }) => {
   let classNames = 'button';
@@ -10,8 +11,11 @@ const Button = ({ children, linkTo, color, isSmall, ...props }) => {
     classNames += ' button--is-small';
   }
 
-  return (
-    // eslint-disable-next-line jsx-a11y/anchor-is-valid
+  return linkTo.startsWith('/') ? (
+    <Link href={linkTo} className={classNames} {...props}>
+      {children}
+    </Link>
+  ) : (
     <a href={linkTo} className={classNames} {...props}>
       {children}
     </a>
