@@ -2,6 +2,7 @@
   @include font($size: 20px, $color: $white);
 
   background: $dark-blue;
+  box-shadow: 0 2px 4px rgba($gray, 0.6);
   width: 100%;
   padding: 20px 40px;
   display: flex;
@@ -31,7 +32,7 @@
     width: 100%;
     height: 100vh;
     transform: translate(100%, -100%);
-    transition: transform 1s cubic-bezier(.39, .58, .57, 1);
+    transition: transform .6s cubic-bezier(.39, .58, .57, 1);
 
 
     &--is-active {
@@ -62,7 +63,7 @@
     width: 100%;
     text-align: right;
     opacity: 0;
-    transition: opacity 0.2s 0.9s, transform 0.4s 0.9s;
+    transition: opacity 0.2s 0.8s, transform 0.4s 0.7s;
     transform: translateY(100px);
 
     @include mq('tablet') {
