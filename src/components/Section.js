@@ -29,7 +29,7 @@ const Section = ({ h, p, img, button, color, isCenter, isMirror, isWide }) => {
       <div className="section__content">
         {color !== '' && <Mosaic color={color} />}
         {h !== '' && <h2 className="section__h">{h}</h2>}
-        {p.childMarkdownRemark.html !== '' && (
+        {p.childMarkdownRemark && p.childMarkdownRemark.html !== '' && (
           <div
             className="section__p"
             // eslint-disable-next-line react/no-danger

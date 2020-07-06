@@ -33,6 +33,7 @@ export const query = graphql`
     allDatoCmsPost(sort: { fields: meta___publishedAt, order: DESC }) {
       edges {
         node {
+          slug
           heading
           content {
             ... on DatoCmsText {
