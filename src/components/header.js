@@ -11,7 +11,7 @@ const Header = ({ hero: { heading, paragraph, hero } }) => (
       <div className="header__content">
         <h1 className="header__h">{heading}</h1>
         <p className="header__p">{paragraph}</p>
-        <Button>Get in touch</Button>
+        <Button linkTo="/moje-prace">Zobacz moje prace</Button>
       </div>
       <Hero image={hero} />
     </div>
