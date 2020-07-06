@@ -32,7 +32,12 @@ const Template = ({ children, hero }) => {
 
   return (
     <>
-      <HelmetDatoCms seo={seoMetaTags} />
+      <HelmetDatoCms seo={seoMetaTags}>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </HelmetDatoCms>
       <Header hero={heroData} />
       <main>
         <article>{children}</article>
