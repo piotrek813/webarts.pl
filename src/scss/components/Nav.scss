@@ -3,7 +3,7 @@
 
   background: $dark-blue;
   width: 100%;
-  padding: 23px 40px;
+  padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,13 +13,14 @@
   z-index: 9998;
 
   @include mq('desktop') {
-    padding: 23px 140px;
+    padding: 20px 140px;
   }
 
   &__list {
     @include flex($center: false);
     @include font($size: 28px, $weight: 'bold');
 
+    list-style: none;
     background: $dark-blue;
     justify-content: center;
     align-items: flex-end;

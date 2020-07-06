@@ -1,6 +1,7 @@
 $padding640: 100px;
 $padding-x768: 150px;
 $padding-y768: 100px;
+$padding1080: 100px 140px;
 $padding-left-item1080: 100px 100px 100px 140px;
 $padding-right-item1080: 100px 140px 100px 100px;
 
@@ -19,10 +20,7 @@ $padding-right-item1080: 100px 140px 100px 100px;
 }
 
 .section {
-  @include mq('desktop') {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
+  display: block;
 
   &__h {
     @include font($size: 25px, $weight: 'bold');
@@ -58,6 +56,7 @@ $padding-right-item1080: 100px 140px 100px 100px;
       padding: $padding-left-item1080;
       @include flex($center: false);
       justify-content: center;
+      align-items: flex-start;
     }
   }
 
@@ -86,29 +85,19 @@ $padding-right-item1080: 100px 140px 100px 100px;
 
   &--is-center {
     text-align: center;
-    display: block;
-
-    .section__content {
-      display: block;
-
-      @include mq('tablet') {
-        padding-right: 140px;
-      }
-    }
   }
 
-  &--is-align-left {
-    display: block;
+  &--is-grid {
+    display: grid;
+
+    @include mq('desktop') {
+      grid-template-columns: repeat(2, 1fr);
+    }
 
     .section__content {
-      display: block;
-
-      @include mq('tablet') {
-        padding-right: 140px;
-      }
+      padding: none;
     }
   }
-
 
   &--is-mirror {
     .section__img {
@@ -128,13 +117,22 @@ $padding-right-item1080: 100px 140px 100px 100px;
 
   &--is-wide {
     position: relative;
+    padding: 40px;
+    grid-row-gap: 40px;
 
-    @include mq('desktop') {
-      grid-template-columns: 1fr;
+    @include mq('tablet-small') {
+      padding: $padding640;
+      // grid-row-gap: $padding640 * 2;
     }
 
-    @include mq('desktop-wide') {
-      grid-template-columns: repeat(2, 1fr);
+    @include mq('tablet') {
+      padding: $padding-x768;
+      // grid-row-gap: $padding-y768 * 2;
+    }
+
+    @include mq('desktop') {
+      padding: $padding1080;
+      grid-gap: 0 100px;
     }
 
     .section__content,
@@ -144,14 +142,12 @@ $padding-right-item1080: 100px 140px 100px 100px;
 
     .section__content {
       position: static;
-      padding-bottom: 0;
-
-      @include mq('desktop') {
-        padding-bottom: 100px;
-      }
+      padding: 0;
     }
 
     .section__img {
+      padding: 0;
+
       @include mq('desktop') {
         display: none;
       }

@@ -34,7 +34,9 @@ const Template = ({ children, hero }) => {
     <>
       <HelmetDatoCms seo={seoMetaTags} />
       <Header hero={heroData} />
-      {children}
+      <main>
+        <article>{children}</article>
+      </main>
       <Footer />
     </>
   );

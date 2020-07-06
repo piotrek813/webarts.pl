@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 
-const Button = ({ children, color, isSmall }) => {
+const Button = ({ children, linkTo, color, isSmall, ...props }) => {
   let classNames = 'button';
   if (color) {
     classNames += ` button--color-${color}`;
@@ -10,20 +11,26 @@ const Button = ({ children, color, isSmall }) => {
     classNames += ' button--is-small';
   }
 
-  return (
-    // eslint-disable-next-line jsx-a11y/anchor-is-valid
-    <a href="#" className={classNames}>
+  return linkTo.startsWith('/') ? (
+    <Link href={linkTo} className={classNames} {...props}>
+      {children}
+    </Link>
+  ) : (
+    <a href={linkTo} className={classNames} {...props}>
       {children}
     </a>
   );
 };
+
 Button.propTypes = {
   children: PropTypes.string.isRequired,
+  linkTo: PropTypes.string,
   color: PropTypes.oneOf(['primary', 'secondary', 'dark', 'dark-blue']),
   isSmall: PropTypes.bool,
 };
 
 Button.defaultProps = {
+  linkTo: '#',
   color: 'secondary',
   isSmall: false,
 };

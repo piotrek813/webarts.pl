@@ -29,7 +29,7 @@ const MyWorksPage = ({
         hero: datoCmsPortfolio.hero,
       }}
     >
-      {works.map(({ node: { heading, paragraphNode, image } }, i) => (
+      {works.map(({ node: { heading, paragraphNode, image, link } }, i) => (
         <Section
           isWide
           key={heading}
@@ -38,6 +38,14 @@ const MyWorksPage = ({
           h={heading}
           p={paragraphNode}
           img={image}
+          button={{
+            label: 'Zobacz stronę',
+            linkTo: link,
+            props: {
+              isSmall: true,
+              target: '_blank',
+            },
+          }}
         />
       ))}
     </Template>
@@ -59,10 +67,15 @@ export const query = graphql`
       edges {
         node {
           heading
-          paragraph
+          paragraphNode {
+            childMarkdownRemark {
+              html
+            }
+          }
+          link
           image {
             fluid(maxWidth: 800) {
-              ...GatsbyDatoCmsFluid
+              ...GatsbyDatoCmsFluid_noBase64
             }
           }
         }

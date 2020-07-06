@@ -1,32 +1,9 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Section from 'components/Section';
+import getColorName from 'utils/getColorName';
 
 const RenderSections = ({ data }) => {
-  const colors = [
-    {
-      name: 'primary',
-      hex: '#518CE3',
-    },
-    {
-      name: 'dark',
-      hex: '#2A2C34',
-    },
-    {
-      name: 'secondary',
-      hex: '#1E3A65',
-    },
-    {
-      name: 'dark-blue',
-      hex: '#3475D6',
-    },
-  ];
-
-  const getColorName = (hex) => {
-    const color = colors.filter((c) => c.hex === hex.toUpperCase());
-    return color.length !== 0 ? color[0].name : '';
-  };
-
   return (
     <>
       {data.map(({ model: { apiKey }, ...section }) => (

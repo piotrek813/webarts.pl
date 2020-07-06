@@ -6,11 +6,12 @@ const PostsGroup = ({ h, data }) => (
   <section className="posts-group">
     <h2 className="posts-group__h">{h}</h2>
     <div className="posts-group__container">
-      {data.map(({ node: { heading, content, hero } }) => (
+      {data.map(({ node: { slug, heading, content, hero } }) => (
         <PostReference
-          key={heading}
+          key={slug}
           h={heading}
           p={content[0].textNode.childMarkdownRemark.excerpt}
+          linkTo={`/${slug}`}
           hero={hero}
         />
       ))}
