@@ -85,6 +85,10 @@ $padding-right-item1080: 100px 140px 100px 100px;
 
   &--is-center {
     text-align: center;
+
+    .section__content {
+      align-items: center;
+    }
   }
 
   &--is-grid {
