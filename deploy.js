@@ -13,9 +13,9 @@ async function example() {
       secureOptions: { rejectUnauthorized: false },
     });
     console.log(await client.list());
-    await client.ensureDir('/domains/webarts.pl/public_html/test');
+    await client.ensureDir('/domains/webarts.pl/public_html');
     await client.clearWorkingDir();
-    await client.uploadFromDir(`${__dirname}/build`);
+    await client.uploadFromDir(`${__dirname}/public`);
   } catch (err) {
     console.log(err);
   }
