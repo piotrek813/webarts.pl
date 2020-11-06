@@ -1,7 +1,0 @@
-language: node_js
-node_js:
-  - node
-script:
-  - yarn build
-after_success:
-  - node deploy.js
