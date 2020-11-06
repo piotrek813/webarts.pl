@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Piotr Smoliński https://github.com/piotrek813/",
   "dependencies": {
+    "basic-ftp": "^4.6.3",
     "dotenv": "^8.2.0",
     "gatsby": "^2.23.20",
     "gatsby-image": "^2.4.8",
