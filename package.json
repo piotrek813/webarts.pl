@@ -48,7 +48,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "deploy-ftp": "node deploy.ftp"
+    "deploy-ftp": "node deploy-ftp.js"
   },
   "repository": {
     "type": "git",
