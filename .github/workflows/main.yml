@@ -30,4 +30,4 @@ jobs:
           username: piotrek
           password: ${{ secrets.ftp_password }}
           local-dir: public/
-          server-dir: /domains/webarts.pl/public_html/github-ftp-test
+          server-dir: /domains/webarts.pl/public_html/github-ftp-test/
