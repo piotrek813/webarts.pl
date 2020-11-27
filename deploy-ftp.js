@@ -2,7 +2,7 @@ const ftp = require('basic-ftp');
 require('dotenv').config();
 
 async function example() {
-  const client = new ftp.Client();
+  const client = new ftp.Client(600600);
   client.ftp.verbose = true;
   try {
     await client.access({
@@ -12,7 +12,6 @@ async function example() {
       secure: true,
       secureOptions: { rejectUnauthorized: false },
     });
-    console.log(await client.list());
     await client.ensureDir('/domains/webarts.pl/public_html');
     await client.clearWorkingDir();
     await client.uploadFromDir(`${__dirname}/public`);
