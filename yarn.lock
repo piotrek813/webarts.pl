@@ -976,9 +976,9 @@
     to-fast-properties "^2.0.0"
 
 "@chvrchbvrner26/ftp-deploy@^1.1.0":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@chvrchbvrner26/ftp-deploy/-/ftp-deploy-1.1.1.tgz#52304712a0065e558dfb404388346f0fb5b475f6"
-  integrity sha512-W9p9Cg3/Mbq6CTGFVIOIFLiGMghClbocxo5tv5DNUS+d6R1iooXQZyOmzlN13yAZBo70cxE6RRy/c8Bqtg/pFA==
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@chvrchbvrner26/ftp-deploy/-/ftp-deploy-1.1.2.tgz#8dc8523fa8712b55bf8338961bb47abed771f75d"
+  integrity sha512-iVC1QbEBuHcJkMF/DIB0afTdzZKB317bOeCt3yOP1mVpgEXPpjsxMK9gLLpRFEVGQdIuBDXiIpML/vxgb0ntaA==
   dependencies:
     basic-ftp "^4.6.3"
     dotenv "^8.2.0"

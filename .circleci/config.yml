@@ -14,4 +14,4 @@ jobs:
           command: yarn build
       - run:
           name: deploy
-          command: npx deploy-ftp
+          command: npx ftp-deploy
