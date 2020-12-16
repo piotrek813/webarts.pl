@@ -1,3 +1,1 @@
-# Webarts.pl
-
-My personal website created with Gatby.js and Sass
+# [Webarts.pl](https://webarts.pl)
