@@ -5,7 +5,7 @@ const NotFoundPage = () => (
   <Template
     hero={{
       heading: 'NOT FOUND',
-      paragraph: 'You just hit a route that doesn&#39;t exist... the sadness.',
+      paragraph: "You just hit a route that doesn't exist... the sadness.",
     }}
   />
 );
