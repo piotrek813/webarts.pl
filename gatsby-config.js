@@ -13,7 +13,6 @@ module.exports = {
       options: {
         RewriteBase: true,
         https: true,
-        www: false,
         DisallowSymLinks: true,
         // SymLinksIfOwnerMatch: true,
         host: 'webarts.pl',
