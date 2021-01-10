@@ -8,19 +8,6 @@ module.exports = {
     author: `@piotrek813`,
   },
   plugins: [
-    {
-      resolve: 'gatsby-plugin-htaccess',
-      options: {
-        RewriteBase: true,
-        https: true,
-        DisallowSymLinks: true,
-        // SymLinksIfOwnerMatch: true,
-        host: 'webarts.pl',
-        ErrorDocument: `
-          ErrorDocument 404 404.html
-        `,
-      },
-    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     {
