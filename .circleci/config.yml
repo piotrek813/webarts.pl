@@ -7,6 +7,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Check var
+          command: echo $$CIRCLE_BRANCH
+      - run:
           name: Install Dependencies
           command: yarn
       - run:
