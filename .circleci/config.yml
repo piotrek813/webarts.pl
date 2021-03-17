@@ -7,9 +7,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Check var
-          command: echo $$CIRCLE_BRANCH
-      - run:
           name: Install Dependencies
           command: yarn
       - run:
@@ -18,3 +15,11 @@ jobs:
       - run:
           name: deploy
           command: npx ftp-deploy
+      - run:
+          name: Notify DatoCMS about the status of the job
+          command: 'curl -X POST --data-binary "{\"payload\": { \"branch\": \"$CIRCLE_BRANCH\", \"status\": \"failed\" } }" https://webhooks.datocms.com/394d0a4d5f6a65d7ef36/deploy-results'
+          when: on_fail
+      - run:
+          name: Notify DatoCMS about the status of the job
+          command: 'curl -X POST --data-binary "{\"payload\": { \"branch\": \"$CIRCLE_BRANCH\", \"status\": \"success\" } }" https://webhooks.datocms.com/394d0a4d5f6a65d7ef36/deploy-results'
+          when: on_success
